@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">UnitTest</string>
+    <string name="settings_title">My Settings</string>
+    <string name="name_label">Your Name</string>
+    <string name="name_hint">name</string>
+    <string name="dob_label">Your Date of Birth</string>
+    <string name="email_label">Your Email Address</string>
+    <string name="save">Save</string>
+    <string name="revert">Revert</string>
+    <string name="email_hint">email</string>
+</resources>
