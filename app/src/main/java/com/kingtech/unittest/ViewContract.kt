@@ -29,6 +29,10 @@ class ViewContract(private val viewPresenter: ViewPresenter) {
 		if (isSuccessful) viewPresenter.showMsg("info saved") else viewPresenter.showMsg("Failed to save")
 		updateUi()
 		
+		/*
+		* For Test
+		* Step 1 Create a User Object that would make our test fail
+		* Step 2 Create a User Object that would make our test pass */
 	}
 	
 	fun deleteUser() {

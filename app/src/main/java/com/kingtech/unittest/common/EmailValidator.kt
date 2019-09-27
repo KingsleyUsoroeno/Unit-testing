@@ -2,7 +2,6 @@ package com.kingtech.unittest.common
 
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Patterns
 import java.util.regex.Pattern
 
 /**
@@ -11,16 +10,10 @@ import java.util.regex.Pattern
 
 
 object EmailValidator : TextWatcher {
-	
-	private val EMAIL_PATTERN: Pattern = Pattern.compile(
-		"[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-				"\\@" +
-				"[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-				"(" +
-				"\\." +
-				"[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-				")+"
-	)
+	var EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+			"[a-zA-Z0-9_+&*-]+)*@" +
+			"(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+			"A-Z]{2,7}$"
 	
 	private var isValid = false
 	
@@ -29,7 +22,8 @@ object EmailValidator : TextWatcher {
 	}
 	
 	fun isEmailValid(email: String): Boolean {
-		return email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+		val pattern = Pattern.compile(EMAIL_REGEX)
+		return email.isNotEmpty() && pattern.matcher(email).matches()
 	}
 	
 	override fun afterTextChanged(editable: Editable) {
